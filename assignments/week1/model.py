@@ -14,7 +14,7 @@ class LinearRegression:
         self.b = 0
 
     def fit(self, X: np.ndarray, y: np.ndarray) -> tuple:
-        '''Gives the closed form solution for the linear regression problem.'''
+        """Gives the closed form solution for the linear regression problem."""
         X_ones = np.ones(X.shape[0]).reshape(X.shape[0], 1)
         X_new = np.concatenate((X, X_ones), axis=1)
         weights = np.linalg.inv(X_new.T @ X_new) @ (X_new.T @ y)
@@ -23,7 +23,7 @@ class LinearRegression:
         return (self.w, self.b)
 
     def predict(self, X: np.ndarray) -> np.ndarray:
-        '''Predicts labels with input X and fitted parameters w and b.'''
+        """Predicts labels with input X and fitted parameters w and b."""
         return X @ self.w + self.b
 
 
@@ -35,7 +35,7 @@ class GradientDescentLinearRegression(LinearRegression):
     def fit(
         self, X: np.ndarray, y: np.ndarray, lr: float = 0.0000001, epochs: int = 30000
     ) -> tuple:
-        '''Fits data with gradient descent with learning rate defualt to 1e-7 and epochs 3e4'''
+        """Fits data with gradient descent with learning rate defualt to 1e-7 and epochs 3e4"""
         self.w = np.zeros(X.shape[1])
         self.b = 0
         for i in range(epochs):

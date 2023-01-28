@@ -26,8 +26,7 @@ def test_has_correct_attributes(model):
     assert hasattr(lr, "w"), f"{str(model)} does not have attribute `w`."
     assert hasattr(lr, "b"), f"{str(model)} does not have attribute `b`."
     assert hasattr(lr, "fit"), f"{str(model)} does not have method `fit`."
-    assert hasattr(
-        lr, "predict"), f"{str(model)} does not have method `predict`."
+    assert hasattr(lr, "predict"), f"{str(model)} does not have method `predict`."
 
 
 @model_parametrize
@@ -43,8 +42,7 @@ def test_fn_signatures(model):
     methods = ["fit", "predict"]
     for method in methods:
         assert (
-            signature(getattr(lr, method)
-                      ).return_annotation is not inspect._empty
+            signature(getattr(lr, method)).return_annotation is not inspect._empty
         ), f"The return type of `{method}` is not annotated."
 
         # Arguments must be typed.
