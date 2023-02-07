@@ -161,7 +161,6 @@ def get_accuracies(
         for initializer in initializers:
             for hidden_count in hidden_counts:
                 for hidden_size in hidden_sizes:
-
                     print(
                         f"hidden_size: {hidden_size} | hidden_count: {hidden_count} | initializer: {initializer} | activation: {activation}"
                     )
