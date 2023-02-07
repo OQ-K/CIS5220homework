@@ -1,6 +1,5 @@
 import torch
 from typing import Callable
-import torch
 import torch.nn as nn
 
 
