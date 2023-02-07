@@ -152,7 +152,7 @@ def main():
 
 def get_accuracies(
     activations, initializers, hidden_counts, hidden_sizes, input_dim, num_classes
-) -> list:
+):
     train_loader, test_loader = get_mnist_data()
 
     print(activations)
