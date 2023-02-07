@@ -3,6 +3,7 @@ Run the MLP training and evaluation pipeline.
 """
 
 from model_factory import create_model
+from model import MLP
 
 # MNIST:
 from torchvision.datasets import MNIST
@@ -147,6 +148,46 @@ def main():
         learning_rate=0.001,
         device=torch.device("cuda" if torch.cuda.is_available() else "cpu"),
     )
+
+
+def get_accuracies(
+    activations, initializers, hidden_counts, hidden_sizes, input_dim, num_classes
+):
+    train_loader, test_loader = get_mnist_data()
+
+    print(activations)
+    accuracies = []
+    for activation in activations:
+        for initializer in initializers:
+            for hidden_count in hidden_counts:
+                for hidden_size in hidden_sizes:
+
+                    print(
+                        f"hidden_size: {hidden_size} | hidden_count: {hidden_count} | initializer: {initializer} | activation: {activation}"
+                    )
+                    model = MLP(
+                        input_dim,
+                        hidden_size,
+                        num_classes,
+                        hidden_count,
+                        activation,
+                        initializer,
+                    )
+
+                    accuracy = train(
+                        model=model,
+                        train_loader=train_loader,
+                        test_loader=test_loader,
+                        num_epochs=10,
+                        learning_rate=0.001,
+                        device=torch.device(
+                            "cuda" if torch.cuda.is_available() else "cpu"
+                        ),
+                    )
+                    print("-" * 100)
+
+                    accuracies.append(accuracy)
+    return accuracies
 
 
 if __name__ == "__main__":
