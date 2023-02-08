@@ -131,8 +131,7 @@ def train(
         # Calculate the accuracy:
         accuracy = correct / total
         # Update the progress bar:
-        progress_bar.set_description(
-            f"Epoch: {epoch}, Accuracy: {accuracy:.4f}")
+        progress_bar.set_description(f"Epoch: {epoch}, Accuracy: {accuracy:.4f}")
 
 
 def main():
