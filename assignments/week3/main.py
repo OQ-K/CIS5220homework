@@ -131,7 +131,8 @@ def train(
         # Calculate the accuracy:
         accuracy = correct / total
         # Update the progress bar:
-        progress_bar.set_description(f"Epoch: {epoch}, Accuracy: {accuracy:.4f}")
+        progress_bar.set_description(
+            f"Epoch: {epoch}, Accuracy: {accuracy:.4f}")
 
 
 def main():
@@ -161,9 +162,6 @@ def get_accuracies(
         for initializer in initializers:
             for hidden_count in hidden_counts:
                 for hidden_size in hidden_sizes:
-                    print(
-                        f"hidden_size: {hidden_size} | hidden_count: {hidden_count} | initializer: {initializer} | activation: {activation}"
-                    )
                     model = MLP(
                         input_dim,
                         hidden_size,
