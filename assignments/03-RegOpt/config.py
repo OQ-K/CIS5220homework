@@ -7,14 +7,14 @@ from torchvision.transforms import Compose, ToTensor
 
 class CONFIG:
     batch_size = 64
-    num_epochs = 20
+    num_epochs = 22
     initial_learning_rate = 0.001
     initial_weight_decay = 0
 
     lrs_kwargs = {
         # You can pass arguments to the learning rate scheduler
         # constructor here.
-        "num_batches": 782,
+        "num_batches": 600,
         "num_epochs": num_epochs,
         "initial_learning_rate": initial_learning_rate,
         "eta_max": 0.003,
