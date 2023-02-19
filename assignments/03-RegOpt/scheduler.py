@@ -42,11 +42,6 @@ class CustomLRScheduler(_LRScheduler):
 
         # ... Your Code Here ...
         # Here's our dumb baseline implementation:
-        # if self.last_epoch % 300 == 0:
-        #    self.last_lr = self.last_lr * self.gamma
-        #    for op_params in self.optimizer.param_groups:
-        #        op_params['lr'] = self.last_lr
-        # -----------------------------------------
         if self.last_epoch < self.t0:
             self.last_lr = 10e-4 + self.eta_max * self.last_epoch / self.t0
         if self.last_epoch < self.total_steps:
@@ -60,4 +55,3 @@ class CustomLRScheduler(_LRScheduler):
                 + 10e-6
             )
         return [self.last_lr]
-        # return [i for i in self.base_lrs]
