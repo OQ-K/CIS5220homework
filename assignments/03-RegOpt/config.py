@@ -14,10 +14,10 @@ class CONFIG:
     lrs_kwargs = {
         # You can pass arguments to the learning rate scheduler
         # constructor here.
-        "num_batches": 700,
+        "num_batches": 800,
         "num_epochs": num_epochs,
         "initial_learning_rate": initial_learning_rate,
-        "eta_max": 0.0025,
+        "eta_max": 0.002,
         "gamma": 0.98,
     }
 
