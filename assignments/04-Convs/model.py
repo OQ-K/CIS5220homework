@@ -12,12 +12,12 @@ class Model(torch.nn.Module):
         initialization
         """
         super(Model, self).__init__()
-        self.conv2d1 = nn.Conv2d(num_channels, 8, 3)
-        self.conv2d2 = nn.Conv2d(num_channels, 8, 3)
+        self.conv2d1 = nn.Conv2d(num_channels, 12, 3)
+        self.conv2d2 = nn.Conv2d(num_channels, 12, 3)
 
-        self.pool = nn.MaxPool2d(2)
+        self.pool = nn.MaxPool2d(5)
         self.relu = nn.ReLU()
-        self.fc = nn.Linear(8 * 15 * 15 * 2, num_classes)
+        self.fc = nn.Linear(12 * 6 * 6 * 2, num_classes)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """
